@@ -1,8 +1,15 @@
 Package: mlxPlot
 Title: A function to plot raw data in pdf before modelling
 Version: 0.0.0.9000
-Authors@R: c(person("Nicolas", "Azzopardi", , "nicolas.azzopardi@univ-tours.fr", role = c("aut", "cre")))
+Authors@R: c(
+    person("Nicolas", "Azzopardi", , "nicolas.azzopardi@univ-tours.fr", role = c("aut", "cre","cph"))
+)
 Description: A function to plot raw data in pdf before modelling
 Depends: R (>= 3.1.2)
 License: Personal only
 LazyData: true
+Imports:
+    ggplot2,
+    grid
+URL: https://github.com/Tuxmaniak/mlxPlot
+BugReports: https://github.com/Tuxmaniak/mlxPlot/issues
