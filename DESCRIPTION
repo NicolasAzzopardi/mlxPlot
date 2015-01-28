@@ -1,8 +1,8 @@
 Package: mlxPlot
-Title: What the Package Does (one line, title case)
+Title: A function to plot raw data in pdf before modelling
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Authors@R: person("Nicolas", "Azzopardi", "nicolas.azzopardi@univ-tours.fr", role = c("aut"))
+Description: A function to plot raw data in pdf before modelling
 Depends: R (>= 3.1.2)
-License: What license is it under?
+License: Personal only
 LazyData: true
