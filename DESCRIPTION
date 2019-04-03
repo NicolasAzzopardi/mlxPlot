@@ -1,9 +1,11 @@
 Package: mlxPlot
 Title: A function to plot raw data in pdf before modelling
 Version: 0.0.0.9000
-Authors@R: c(person("Nicolas", "Azzopardi", , "nicolas.azzopardi@univ-tours.fr", role = c("aut", "cre","cph")))
+Authors@R: c(person("Nicolas", "Azzopardi", role = c("aut", "cre"), email="nicolas.azzopardi@univ-tours.fr"))
+Author: Nicolas Azzopardi [aut,cre]
+Maintainer: Nicolas Azzopardi <nicolas.azzopardi@univ-tours.fr>
 Description: A function to plot raw data in pdf before modelling
-Depends: R (>= 3.1.2)
+Depends: R (>= 3.1.2), ggplot2, grid
 License: Personal only
 LazyData: true
 Imports: ggplot2, grid
