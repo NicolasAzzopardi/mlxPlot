@@ -4,19 +4,14 @@
 \alias{MlxPop2Xlsx}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-MlxPop2Xlsx(MlxProj, output = TRUE)
+MlxPop2Xlsx(mlxproj, output = TRUE)
 }
 \arguments{
-\item{MlxProj}{Data Table.}
+\item{mlxproj}{Data Table.}
 
 \item{output}{Logical. output .xlsx file or not. default to TRUE.}
 }
 \description{
 This function allows you to have almost a publication ready table of the population parameter of a model project.
-}
-\examples{
-library(tidyverse)
-library(readxl)
-MlxPop2Xlsx("R")
 }
 \keyword{monolix}
