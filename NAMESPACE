@@ -2,8 +2,10 @@
 
 export(MlxPop2Xlsx)
 export(forest.timeC)
+export(mlxpop.print)
 import(dplyr)
 import(ggplot2)
+import(knitr)
 import(mlxR)
 import(purrr)
 import(readr)

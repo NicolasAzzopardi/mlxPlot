@@ -18,13 +18,19 @@
 
 forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
                          , c.name="C1"
+                         , prop.name="b"
                          , survtab=PFS
                          , simtimes=7
                          , hr.range = c(.25,4)
                          , c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
 ){
+  if(prop.name=="b"){
+    sim.param <- list("mode",c(b=0))
+  }
+  if(prop.name=="b1"){
+    sim.param <- list("mode",c(b1=0))
+  }
 
-  sim.param <- "mode"
 
   add.timec <- list(
     section = "[LONGITUDINAL]", block = "EQUATION:",
@@ -56,7 +62,7 @@ forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
     select(`id` = `oriId`, everything()) %>%
     rename(`ID` = `id`) %>% mutate_at(vars(`timec.names`), function( x ) {
       ifelse(x > stats::median(x), "> median", "<= median")
-    })
+    }) %>% mutate(ID=as.numeric(as.character(ID)))
 
   survtab <- survtab %>% inner_join(timecs, by = "ID")
 
@@ -65,12 +71,15 @@ forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
   }
   ) %>%
     forest_plot(
-      endpoint_labeller = c(time = "PFS"),
+      endpoint_labeller = c(time = "PFS"), relative_widths = c(.7, 1.5, .8),
       HR_x_limits = hr.range,
       HR_x_breaks = 2 ^ (log2(hr.range[1]):log2(hr.range[2])),
       # orderer = ~order(HR),
       labels_displayed = c("factor"),
       values_displayed = c("HR", "CI", "p"), # , "subgroup_n"),
       ggtheme = theme_bw(base_size = 10)
-    )
+    )+theme(axis.title.x = element_text(angle = 45))
 }
+
+
+

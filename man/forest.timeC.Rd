@@ -5,8 +5,8 @@
 \title{A function forest plot the Time spent vs. survival.}
 \usage{
 forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
-  c.name = "C1", survtab = PFS, simtimes = 7, c.range = c(5, 10,
-  20, 30, 40, 50, 75, 100, 150, 200))
+  c.name = "C1", survtab = PFS, simtimes = 7, hr.range = c(0.25,
+  4), c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200))
 }
 \arguments{
 \item{project.file}{Monolix (2018) project file.}
@@ -16,6 +16,8 @@ forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
 \item{survtab}{Table of survival: 3 columns ID, TIME, PROG.}
 
 \item{simtimes}{Time of evaluation}
+
+\item{hr.range}{HR range to plot (powers of 2). default: c(.25,4).}
 
 \item{c.range}{Concentrations}
 }
