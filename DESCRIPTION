@@ -1,6 +1,6 @@
 Package: mlxPlot
 Title: Nicolas Azzopardi's personal functions
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c(person("Nicolas", "Azzopardi", email="nicolas.azzopardi@univ-tours.fr", role = c("aut", "cre")))
 Author: Nicolas Azzopardi [aut,cre]
 Description: This package amalgamates all my personal functions.
@@ -13,7 +13,6 @@ Imports:
   kableExtra,
   latex2exp,
   ggplot2,
-  grid, 
   mlxR,
   readr,
   writexl,

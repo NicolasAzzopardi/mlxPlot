@@ -5,13 +5,16 @@
 \title{A function forest plot the Time spent vs. survival.}
 \usage{
 forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
-  c.name = "C1", survtab = PFS, simtimes = 7, hr.range = c(0.25,
-  4), c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200))
+  c.name = "C1", prop.name = "b", survtab = PFS, simtimes = 7,
+  hr.range = c(0.25, 4), c.range = c(5, 10, 20, 30, 40, 50, 75, 100,
+  150, 200))
 }
 \arguments{
 \item{project.file}{Monolix (2018) project file.}
 
 \item{c.name}{Name of the concentration in the mlxtran project.}
+
+\item{prop.name}{Name of the sigma parameter. "b" is default.}
 
 \item{survtab}{Table of survival: 3 columns ID, TIME, PROG.}
 

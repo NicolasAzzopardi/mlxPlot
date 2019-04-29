@@ -4,12 +4,17 @@
 \alias{mlxpop.print}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-mlxpop.print(mlxproj, output = "xlsx")
+mlxpop.print(mlxproj, estim = "sa", output = "xlsx",
+  caption = "Pop params")
 }
 \arguments{
 \item{mlxproj}{Data Table.}
 
+\item{estim}{"sa" or "lin". default to "sa".}
+
 \item{output}{Logical. output .xlsx file or not. default to TRUE.}
+
+\item{caption}{Caption of the table.}
 }
 \description{
 This function allows you to have almost a publication ready table of the population parameter of a model project.

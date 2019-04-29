@@ -3,6 +3,7 @@
 #' This function allows you to plot...
 #' @param project.file Monolix (2018) project file.
 #' @param c.name Name of the concentration in the mlxtran project.
+#' @param prop.name Name of the sigma parameter. "b" is default.
 #' @param survtab Table of survival: 3 columns ID, TIME, PROG.
 #' @param simtimes Time of evaluation
 #' @param c.range Concentrations

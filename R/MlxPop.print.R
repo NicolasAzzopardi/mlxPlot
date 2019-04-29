@@ -2,7 +2,9 @@
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
 #' @param mlxproj Data Table.
+#' @param estim "sa" or "lin". default to "sa".
 #' @param output Logical. output .xlsx file or not. default to TRUE.
+#' @param caption Caption of the table.
 #' @keywords monolix
 #' @export
 #' @examples
