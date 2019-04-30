@@ -2,6 +2,7 @@
 #' @param pack List of packages names to require or if not installed, to install and require.
 #' @keywords package install
 #' @export ior
+#' @keywords package
 #' @examples # ior("ggplot2")
 
 ior <- function(pack){
