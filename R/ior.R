@@ -1,6 +1,6 @@
 #' Install or require a list of packages.
 #' @param pack List of packages names to require or if not installed, to install and require.
-#' @keywords package
+#' @keywords package install
 #' @export ior
 #' @examples # ior("ggplot2")
 
