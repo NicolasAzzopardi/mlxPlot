@@ -9,17 +9,18 @@ License: GPL-2
 LazyData: true
 Imports: 
   dplyr,
+  ggplot2,
   knitr,
   kableExtra,
   latex2exp,
-  ggplot2,
   mlxR,
+  purrr,
   readr,
-  writexl,
   stats,
   survival,
   survivalAnalysis,
-  purrr
+  utils,
+  writexl
 URL: https://github.com/Tuxmaniak/mlxPlot
 BugReports: https://github.com/Tuxmaniak/mlxPlot/issues
 RoxygenNote: 6.1.1
