@@ -7,9 +7,9 @@
 #' @param survtab Table of survival: 3 columns ID, TIME, PROG.
 #' @param simtimes Time of evaluation
 #' @param c.range Concentrations
-#' @param hr.range HR range to plot (powers of 2). default: c(.25,4).
-#' @keywords monolix
-#' @export
+#' @param hr.range HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].
+#' @keywords monolix survival
+#' @export forest.timeC
 #' @examples
 #' @import ggplot2
 #' @import purrr
@@ -22,7 +22,7 @@ forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
                          , prop.name="b"
                          , survtab=PFS
                          , simtimes=7
-                         , hr.range = c(.25,4)
+                         , hr.range = c(-3,3)
                          , c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
 ){
   if(prop.name=="b"){
@@ -73,8 +73,8 @@ forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
   ) %>%
     forest_plot(
       endpoint_labeller = c(time = "PFS"), relative_widths = c(.7, 1.5, .8),
-      HR_x_limits = hr.range,
-      HR_x_breaks = 2 ^ (log2(hr.range[1]):log2(hr.range[2])),
+      HR_x_limits = 2 ^ hr.range,
+      HR_x_breaks = 2 ^ seq(hr.range[1],hr.range[2],by=1),
       # orderer = ~order(HR),
       labels_displayed = c("factor"),
       values_displayed = c("HR", "CI", "p"), # , "subgroup_n"),

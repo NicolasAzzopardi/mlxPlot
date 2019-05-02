@@ -15,4 +15,5 @@ Install or require a list of packages.
 \examples{
 # ior("ggplot2")
 }
+\keyword{install}
 \keyword{package}

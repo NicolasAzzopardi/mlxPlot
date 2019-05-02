@@ -6,8 +6,8 @@
 \usage{
 forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
   c.name = "C1", prop.name = "b", survtab = PFS, simtimes = 7,
-  hr.range = c(0.25, 4), c.range = c(5, 10, 20, 30, 40, 50, 75, 100,
-  150, 200))
+  hr.range = c(-3, 3), c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150,
+  200))
 }
 \arguments{
 \item{project.file}{Monolix (2018) project file.}
@@ -20,7 +20,7 @@ forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
 
 \item{simtimes}{Time of evaluation}
 
-\item{hr.range}{HR range to plot (powers of 2). default: c(.25,4).}
+\item{hr.range}{HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].}
 
 \item{c.range}{Concentrations}
 }
@@ -28,3 +28,4 @@ forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
 This function allows you to plot...
 }
 \keyword{monolix}
+\keyword{survival}
