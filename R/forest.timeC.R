@@ -25,11 +25,17 @@ forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
                          , hr.range = c(-3,3)
                          , c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
 ){
+
+  sim.param <- list("mode")
+
   if(prop.name=="b"){
     sim.param <- list("mode",c(b=0))
   }
   if(prop.name=="b1"){
     sim.param <- list("mode",c(b1=0))
+  }
+  if(prop.name=="b2"){
+    sim.param <- list("mode",c(b2=0))
   }
 
 
