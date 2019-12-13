@@ -4,6 +4,7 @@
 #' @export ior
 #' @keywords package
 #' @examples # ior("ggplot2")
+#' @import utils
 
 ior <- function(pack){
   create.pkg <- pack[!(pack %in% installed.packages()[, "Package"])]

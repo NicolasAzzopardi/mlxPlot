@@ -7,6 +7,11 @@
 #' @export PlotValid
 #' @keywords plot raw
 #' @examples # PlotValid(id="1001",data=PK)
+#' @import dplyr
+#' @import readr
+#' @import writexl
+#' @import knitr
+#' @import latex2exp
 
 PlotValid <- function(id=NULL,data=PK,x.name="Time (day)",y.name="[Cetuximab] (mg/L)"){
   if(is.null(id)){id=data$ID[1]}

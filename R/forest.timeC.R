@@ -10,7 +10,7 @@
 #' @param hr.range HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].
 #' @keywords monolix survival
 #' @export forest.timeC
-#' @examples
+#' @examples # getwd()
 #' @import ggplot2
 #' @import purrr
 #' @import mlxR
