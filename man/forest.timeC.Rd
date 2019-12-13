@@ -4,15 +4,10 @@
 \alias{forest.timeC}
 \title{A function forest plot the Time spent vs. survival.}
 \usage{
-forest.timeC(
-  project.file = "./monolix/181011_2cCLk0.mlxtran",
-  c.name = "C1",
-  prop.name = "b",
-  survtab = PFS,
-  simtimes = 7,
-  hr.range = c(-3, 3),
-  c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
-)
+forest.timeC(project.file = "./monolix/181011_2cCLk0.mlxtran",
+  c.name = "C1", prop.name = "b", survtab = PFS, simtimes = 7,
+  hr.range = c(-3, 3), c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150,
+  200))
 }
 \arguments{
 \item{project.file}{Monolix (2018) project file.}
