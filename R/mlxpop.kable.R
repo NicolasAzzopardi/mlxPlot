@@ -1,11 +1,10 @@
 #' A function to export Populationparameters.txt file of a Monolix project to xlsx file.
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
-#' @param mlxproj Data Table.
+#' @param mlxproj Name of the monolix project. The project must be in ./monolix/
 #' @param estim "sa" or "lin". default to "sa".
-#' @param output Logical. output .xlsx file or not. default to TRUE.
 #' @param caption Caption of the table.
-#' @param greek Convert to greek letters.
+#' @param greek Convert to greek letters, default to FALSE.
 #' @keywords monolix
 #' @export
 #' @examples # getwd()
@@ -15,10 +14,12 @@
 #' @import knitr
 #' @import latex2exp
 
-mlxpop.print.kable <- function(mlxproj,estim = "sa", output="xlsx",caption="Pop params",greek=F){#
+mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE){#
 
   scale0 <- function(x, na.rm = FALSE) round(x, 0)
   scale4 <- function(x, na.rm = FALSE) round(x, 4)
+
+  mlxproj = gsub(".mlxtran","",mlxproj)
 
   POP <- read_delim(
     paste0("./monolix/",mlxproj,"/populationParameters.txt"),

@@ -1,9 +1,9 @@
 Package: mlxPlot
 Title: Nicolas Azzopardi's personal functions
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: c(person("Nicolas", "Azzopardi", email="nicolas.azzopardi@univ-tours.fr", role = c("aut", "cre")))
 Author: Nicolas Azzopardi [aut,cre]
-Description: This package amalgamates all my personal functions.
+Description: This package amalgamates all my personal functions. Mainly around monolix
 Depends: R (>= 3.6)
 License: GPL-2
 LazyData: true
