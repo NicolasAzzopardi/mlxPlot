@@ -4,10 +4,12 @@
 \alias{mlx.OvsP}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-mlx.OvsP(mlxproj, drug = "Y", pop = FALSE)
+mlx.OvsP(mlxproj, y = "y", drug = "Y", pop = FALSE)
 }
 \arguments{
 \item{mlxproj}{Name of the monolix project. The project must be in ./monolix/}
+
+\item{y}{First letters of the file.}
 
 \item{drug}{Text for the legend.}
 

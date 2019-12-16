@@ -2,6 +2,7 @@
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
 #' @param mlxproj Name of the monolix project. The project must be in ./monolix/
+#' @param y First letters of the file.
 #' @param drug Text for the legend.
 #' @param pop Logical. does the Obs vs Pop have to be plotted.
 #' @keywords monolix
@@ -13,10 +14,10 @@
 #' @import ggplot2
 #' @import latex2exp
 
-mlx.OvsP <- function(mlxproj,drug="Y",pop=FALSE){
-  OBSvsPRED <- read_delim(paste0("./monolix/", mlxproj, "/ChartsData/ObservationsVsPredictions/y_obsVsPred.txt"),
+mlx.OvsP <- function(mlxproj,y="y",drug="Y",pop=FALSE){
+  OBSvsPRED <- read_delim(paste0("./monolix/", mlxproj, "/ChartsData/ObservationsVsPredictions/",y,"_obsVsPred.txt"),
                           delim = ",", col_types = cols(ID = col_character(), time = col_double(), pop = col_double(), popPred = col_double(), indivPredMean = col_double(), indivPredMode = col_double()))
-
+names(OBSvsPRED) = gsub(paste0(y,"_"), replacement = "y_",names(OBSvsPRED))
   max.Y = ceiling(max(OBSvsPRED %>% select(popPred,indivPredMode))/100)*100
   OvsiP = ggplot(OBSvsPRED) +
     geom_point(aes(x = indivPredMode, y = y_simBlq_mode,color=as.factor(censored))) +

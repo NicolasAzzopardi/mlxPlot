@@ -4,7 +4,8 @@
 \alias{mlxpop.kable}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-mlxpop.kable(mlxproj, estim = "sa", caption = "Pop params", greek = FALSE)
+mlxpop.kable(mlxproj, estim = "sa", caption = "Pop params",
+  greek = FALSE)
 }
 \arguments{
 \item{mlxproj}{Name of the monolix project. The project must be in ./monolix/}
