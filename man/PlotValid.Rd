@@ -4,21 +4,16 @@
 \alias{PlotValid}
 \title{Plot raw data for validation.}
 \usage{
-PlotValid(
-  id = NULL,
-  data = PK,
-  x.name = "Time (day)",
-  y.name = "[Cetuximab] (mg/L)"
-)
+PlotValid(id = NULL, data = NULL, x.name = "Time (day)", y.name = NULL)
 }
 \arguments{
 \item{id}{Patient's data to plot. First if not mentioned}
 
-\item{data}{Table.}
+\item{data}{PK table.}
 
 \item{x.name}{Name of the X axis.}
 
-\item{y.name}{Name of the Y axis.}
+\item{y.name}{Name of the Y axis. e.g. "[Drug] (mg/L)"}
 }
 \description{
 Plot raw data for validation.

@@ -13,6 +13,7 @@
 #' @import writexl
 #' @import knitr
 #' @import latex2exp
+#' @importFrom rlang .data
 
 mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE){
 
@@ -29,25 +30,25 @@ mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE){
     mutate_at(vars(starts_with("rse")),    scale0) %>%
     mutate_at(vars(starts_with("pvalue")), scale4) %>%
     mutate_all(~ replace(., is.na(.), "")) %>%
-    mutate(parameter = gsub("_pop", "", parameter))
+    mutate(parameter = gsub("_pop", "", .data$parameter))
 
   if(greek==TRUE){
     POP = POP %>%
-      mutate(parameter = gsub("alpha"  , "\u03B1"  , parameter),
-             parameter = gsub("beta_"  , "\u03B2 " , parameter),
-             parameter = gsub("gamma"  , "\u03B3 " , parameter),
-             parameter = gsub("delta"  , "\u03B4"  , parameter),
-             parameter = gsub("epsilon", "\u03B5"  , parameter),
-             parameter = gsub("omega_" , "\u03C9 " , parameter),
-             parameter = gsub("rho"    , "\u03C1"  , parameter),
-             parameter = gsub("b"      , "\u03C3_b", parameter)
+      mutate(parameter = gsub("alpha"  , "\u03B1"  , .data$parameter),
+             parameter = gsub("beta_"  , "\u03B2 " , .data$parameter),
+             parameter = gsub("gamma"  , "\u03B3 " , .data$parameter),
+             parameter = gsub("delta"  , "\u03B4"  , .data$parameter),
+             parameter = gsub("epsilon", "\u03B5"  , .data$parameter),
+             parameter = gsub("omega_" , "\u03C9 " , .data$parameter),
+             parameter = gsub("rho"    , "\u03C1"  , .data$parameter),
+             parameter = gsub("b"      , "\u03C3_b", .data$parameter)
       )
   }
   if(estim=="sa"){
-    POP = POP %>% select(parameter,value,`s.e.`= `se_sa`, `r.s.e.(%)`= `rse_sa`)
+    POP = POP %>% select(.data$parameter,.data$value,`s.e.`= .data$se_sa, `r.s.e.(%)`= .data$rse_sa)
   }
   if(estim=="lin"){
-    POP = POP %>% select(parameter,value,`s.e.`= `se_lin`, `r.s.e.(%)`= `rse_lin`)
+    POP = POP %>% select(.data$parameter,.data$value,`s.e.`= .data$se_lin, `r.s.e.(%)`= .data$rse_lin)
   }
 
   kable(POP, format = "latex", booktabs = T, caption = caption) %>% kableExtra::kable_styling(latex_options = c("striped", "HOLD_position"), position = "left")

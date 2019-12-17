@@ -2,34 +2,25 @@
 % Please edit documentation in R/forest.timeC.R
 \name{forest.timeC}
 \alias{forest.timeC}
-\title{A function forest plot the Time spent vs. survival.}
-\usage{
-forest.timeC(
-  project.file = "./monolix/181011_2cCLk0.mlxtran",
-  c.name = "C1",
-  prop.name = "b",
-  survtab = PFS,
-  simtimes = 7,
-  hr.range = c(-3, 3),
-  c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
-)
-}
+\title{A function forest plot the Time spent vs. survival.
+This function allows you to plot...}
 \arguments{
-\item{project.file}{Monolix (2018) project file.}
+\item{project.file}{Monolix (2018) project file. ex: "./monolix/run1.mlxtran"}
 
-\item{c.name}{Name of the concentration in the mlxtran project.}
+\item{c.name}{Name of the concentration in the mlxtran project. ex : "C1"}
 
-\item{prop.name}{Name of the sigma parameter. "b" is default.}
+\item{prop.name}{Name of the sigma parameter. ex : "b".}
 
 \item{survtab}{Table of survival: 3 columns ID, TIME, PROG.}
 
 \item{simtimes}{Time of evaluation}
 
-\item{hr.range}{HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].}
-
 \item{c.range}{Concentrations}
+
+\item{hr.range}{HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].}
 }
 \description{
+A function forest plot the Time spent vs. survival.
 This function allows you to plot...
 }
 \examples{

@@ -1,14 +1,14 @@
 #' A function forest plot the Time spent vs. survival.
-#'
 #' This function allows you to plot...
-#' @param project.file Monolix (2018) project file.
-#' @param c.name Name of the concentration in the mlxtran project.
-#' @param prop.name Name of the sigma parameter. "b" is default.
+#' @param project.file Monolix (2018) project file. ex: "./monolix/run1.mlxtran"
+#' @param c.name Name of the concentration in the mlxtran project. ex : "C1"
+#' @param prop.name Name of the sigma parameter. ex : "b".
 #' @param survtab Table of survival: 3 columns ID, TIME, PROG.
 #' @param simtimes Time of evaluation
 #' @param c.range Concentrations
 #' @param hr.range HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].
 #' @keywords monolix survival
+#' @name forest.timeC
 #' @export forest.timeC
 #' @examples # getwd()
 #' @import ggplot2
@@ -16,10 +16,13 @@
 #' @import mlxR
 #' @import survival
 #' @import survivalAnalysis
+#' @importFrom rlang .data
 
-forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
-                         , c.name="C1"
-                         , prop.name="b"
+globalVariables(c("PFS"))
+
+forest.timeC <- function(project.file=NULL
+                         , c.name=NULL
+                         , prop.name=NULL
                          , survtab=PFS
                          , simtimes=7
                          , hr.range = c(-3,3)
@@ -64,17 +67,17 @@ forest.timeC <- function(project.file="./monolix/181011_2cCLk0.mlxtran"
   timecs <-
     left_join(timecs %>% reduce(left_join, by = c("id", "time")) %>%
                 mutate(`id` = as.character(`id`)), sim.res1$originalId %>%
-                mutate(`id` = as.character(`newId`)), by = "id") %>%
-    select(-`id`, -`newId`) %>%
-    select(`id` = `oriId`, everything()) %>%
-    rename(`ID` = `id`) %>% mutate_at(vars(`timec.names`), function( x ) {
+                mutate(`id` = as.character(.data$newId)), by = "id") %>%
+    select(id, .data$newId) %>%
+    select(id = .data$oriId, everything()) %>%
+    rename(ID = .data$id) %>% mutate_at(vars(`timec.names`), function( x ) {
       ifelse(x > stats::median(x), "> median", "<= median")
-    }) %>% mutate(ID=as.numeric(as.character(ID)))
+    }) %>% mutate(ID=as.numeric(as.character(.data$ID)))
 
   survtab <- survtab %>% inner_join(timecs, by = "ID")
 
   map(timec.names, function(by) {
-    analyse_multivariate(survtab, vars(TIME, PROG), covariates = list(by))
+    analyse_multivariate(survtab, vars(.data$TIME, .data$PROG), covariates = list(by))
   }
   ) %>%
     forest_plot(
