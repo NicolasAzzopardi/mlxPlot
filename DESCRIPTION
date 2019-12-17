@@ -1,6 +1,6 @@
 Package: mlxPlot
 Title: Nicolas Azzopardi's personal functions
-Version: 0.0.9
+Version: 0.0.10
 Authors@R: c(person("Nicolas", "Azzopardi", email="nicolas.azzopardi@cnrs.fr", role = c("aut", "cre")))
 Author: Nicolas Azzopardi [aut,cre]
 Description: This package amalgamates all my personal functions. Mainly around plots of monolix ChartData. The use is very personalized and requires a specific folder tree structure.

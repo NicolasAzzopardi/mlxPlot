@@ -18,12 +18,10 @@
 #' @import survivalAnalysis
 #' @importFrom rlang .data
 
-globalVariables(c("PFS"))
-
 forest.timeC <- function(project.file=NULL
                          , c.name=NULL
                          , prop.name=NULL
-                         , survtab=PFS
+                         , survtab=NULL
                          , simtimes=7
                          , hr.range = c(-3,3)
                          , c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
@@ -67,17 +65,17 @@ forest.timeC <- function(project.file=NULL
   timecs <-
     left_join(timecs %>% reduce(left_join, by = c("id", "time")) %>%
                 mutate(`id` = as.character(`id`)), sim.res1$originalId %>%
-                mutate(`id` = as.character(.data$newId)), by = "id") %>%
-    select(id, .data$newId) %>%
-    select(id = .data$oriId, everything()) %>%
-    rename(ID = .data$id) %>% mutate_at(vars(`timec.names`), function( x ) {
+                mutate(`id` = as.character(newId)), by = "id") %>%
+    select(id, newId) %>%
+    select(id = oriId, everything()) %>%
+    rename(ID = id) %>% mutate_at(vars(`timec.names`), function( x ) {
       ifelse(x > stats::median(x), "> median", "<= median")
-    }) %>% mutate(ID=as.numeric(as.character(.data$ID)))
+    }) %>% mutate(ID=as.numeric(as.character(ID)))
 
   survtab <- survtab %>% inner_join(timecs, by = "ID")
 
   map(timec.names, function(by) {
-    analyse_multivariate(survtab, vars(.data$TIME, .data$PROG), covariates = list(by))
+    analyse_multivariate(survtab, vars(TIME, PROG), covariates = list(by))
   }
   ) %>%
     forest_plot(

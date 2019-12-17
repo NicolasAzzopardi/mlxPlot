@@ -4,6 +4,17 @@
 \alias{forest.timeC}
 \title{A function forest plot the Time spent vs. survival.
 This function allows you to plot...}
+\usage{
+forest.timeC(
+  project.file = NULL,
+  c.name = NULL,
+  prop.name = NULL,
+  survtab = NULL,
+  simtimes = 7,
+  hr.range = c(-3, 3),
+  c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
+)
+}
 \arguments{
 \item{project.file}{Monolix (2018) project file. ex: "./monolix/run1.mlxtran"}
 
@@ -15,9 +26,9 @@ This function allows you to plot...}
 
 \item{simtimes}{Time of evaluation}
 
-\item{c.range}{Concentrations}
-
 \item{hr.range}{HR range to plot (powers of 2). default: c(-3,3) gives [.125 - 8].}
+
+\item{c.range}{Concentrations}
 }
 \description{
 A function forest plot the Time spent vs. survival.
