@@ -66,8 +66,13 @@ forest.timeC <- function(project.file=NULL
     left_join(timecs %>% reduce(left_join, by = c("id", "time")) %>%
                 mutate(`id` = as.character(`id`)), sim.res1$originalId %>%
                 mutate(`id` = as.character(newId)), by = "id") %>%
+<<<<<<< HEAD
     select(id, newId) %>% rename(id = oriId) %>%
     select(id, everything()) %>%
+=======
+    select(id, newId) %>%
+    select(id = oriId, everything()) %>%
+>>>>>>> b99b0819d0ecdc60a02b2dec0322247cad0c25bb
     rename(ID = id) %>% mutate_at(vars(`timec.names`), function( x ) {
       ifelse(x > stats::median(x), "> median", "<= median")
     }) %>% mutate(ID=as.numeric(as.character(ID)))
