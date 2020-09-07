@@ -27,6 +27,7 @@ forest.timeC <- function(project.file=NULL
                          , c.range = c(5, 10, 20, 30, 40, 50, 75, 100, 150, 200)
 ){
 
+  newId <- oriId <- ID <- TIME <- PROG <- NULL
   sim.param <- list("mode")
 
   if(prop.name=="b"){
