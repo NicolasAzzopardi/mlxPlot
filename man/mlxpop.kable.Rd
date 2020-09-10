@@ -4,16 +4,24 @@
 \alias{mlxpop.kable}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-mlxpop.kable(mlxproj, estim = "sa", caption = "Pop params", greek = FALSE)
+mlxpop.kable(
+  mlxproj,
+  estim = "sa",
+  caption = "Pop params",
+  greek = FALSE,
+  mlxfolder = "../monolix/"
+)
 }
 \arguments{
-\item{mlxproj}{Name of the monolix project. The project must be in ./monolix/}
+\item{mlxproj}{Name of the monolix project. The project must be in *mlxfolder*.}
 
 \item{estim}{"sa" or "lin". default to "sa".}
 
 \item{caption}{Caption of the table.}
 
 \item{greek}{Convert to greek letters, default to FALSE.}
+
+\item{mlxfolder}{Optional. Folder of the *mlxproj*. default to "../monolix/".}
 }
 \description{
 This function allows you to have almost a publication ready table of the population parameter of a model project.

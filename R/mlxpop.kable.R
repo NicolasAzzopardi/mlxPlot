@@ -1,7 +1,8 @@
 #' A function to export Populationparameters.txt file of a Monolix project to xlsx file.
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
-#' @param mlxproj Name of the monolix project. The project must be in ./monolix/
+#' @param mlxproj Name of the monolix project. The project must be in *mlxfolder*.
+#' @param mlxfolder Optional. Folder of the *mlxproj*. default to "../monolix/".
 #' @param estim "sa" or "lin". default to "sa".
 #' @param caption Caption of the table.
 #' @param greek Convert to greek letters, default to FALSE.
@@ -15,7 +16,7 @@
 #' @import latex2exp
 #' @importFrom rlang .data
 
-mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE){
+mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE, mlxfolder ="../monolix/" ){
 
   scale0 <- function(x, na.rm = FALSE) round(x, 0)
   scale4 <- function(x, na.rm = FALSE) round(x, 4)
@@ -23,7 +24,7 @@ mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE){
   mlxproj = gsub(".mlxtran","",mlxproj)
 
   POP <- read_delim(
-    paste0("./monolix/",mlxproj,"/populationParameters.txt"),
+    paste0(mlxfolder,mlxproj,"/populationParameters.txt"),
     delim = ",") %>%
     mutate_at(vars(starts_with("value")),  scale4) %>%
     mutate_at(vars(starts_with("se")),     scale4) %>%
@@ -41,7 +42,7 @@ mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE){
              parameter = gsub("epsilon", "\u03B5"  , .data$parameter),
              parameter = gsub("omega_" , "\u03C9 " , .data$parameter),
              parameter = gsub("rho"    , "\u03C1"  , .data$parameter),
-             parameter = gsub("b"      , "\u03C3_b", .data$parameter)
+             parameter = gsub("b"      , "\u03C3", .data$parameter)
       )
   }
   if(estim=="sa"){
