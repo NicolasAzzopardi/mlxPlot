@@ -1,11 +1,11 @@
-#' A function to export Populationparameters.txt file of a Monolix project to xlsx file.
+#' A function to to print Populationparameters.txt file of a Monolix project to Rmarksdown.
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
 #' @param mlxproj Name of the monolix project. The project must be in *mlxfolder*.
 #' @param mlxfolder Optional. Folder of the *mlxproj*. default to "../monolix/".
 #' @param estim "sa" or "lin". default to "sa".
 #' @param caption Caption of the table.
-#' @param greek Convert to greek letters, default to FALSE.
+#' @param greek Convert to greek letters, "latex_engine: xelatex" is needed. default to FALSE.
 #' @keywords monolix
 #' @export
 #' @examples # getwd()

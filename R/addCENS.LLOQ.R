@@ -13,11 +13,13 @@ addCENS.LLOQ <- function(.data, LLOQ = .1, rm = TRUE){
   if(rm==TRUE){
     TAB %>%
     mutate(Y = ifelse(is.na(Y),NA,ifelse(Y <=LLOQ,LLOQ,Y)),
-           CENS = ifelse(is.na(Y),NA,ifelse(Y==LLOQ, 1, 0)))
+           CENS = ifelse(is.na(Y),NA,ifelse(Y==LLOQ, 1, 0)),
+           LIMIT = ifelse(CENS==1, 0, NA))
   }else{
     TAB %>%
       mutate(Y = ifelse(is.na(Y),NA,ifelse(Y <=LLOQ,LLOQ,Y)),
-             CENS = ifelse(is.na(Y),NA,ifelse(Y==LLOQ, 1, CENS)))
+             CENS = ifelse(is.na(Y),NA,ifelse(Y==LLOQ, 1, CENS)),
+             LIMIT = ifelse(CENS==1, 0, NA))
   }
 }
 

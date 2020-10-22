@@ -12,3 +12,22 @@ ior <- function(pack){
     install.packages(create.pkg, dependencies = TRUE)
   sapply(pack, require, character.only = TRUE)
 }
+
+
+
+impute_all <- function(.tbl, .na, ...) {
+  for (i in 1:length(.tbl)) {
+    .tbl[[i]] <- na.tools::na.replace(.tbl[[i]], .na, ...)
+  }
+  .tbl
+}
+
+
+impute_at <- function(.tbl, .na, .vars, ...) {
+  #.vars <- dplyr::select_vars(names(.tbl), .vars)
+  .vars <- tidyselect::vars_select(names(.tbl), .vars)
+  for (i in .vars) {
+    .tbl[[i]] <- na.tools::na.replace(x = .tbl[[i]], .na = .na, ...)
+  }
+  .tbl
+}
