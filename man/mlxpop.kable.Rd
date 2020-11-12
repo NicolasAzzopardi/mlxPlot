@@ -2,7 +2,7 @@
 % Please edit documentation in R/mlxpop.kable.R
 \name{mlxpop.kable}
 \alias{mlxpop.kable}
-\title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
+\title{A function to to print Populationparameters.txt file of a Monolix project to Rmarksdown.}
 \usage{
 mlxpop.kable(
   mlxproj,
@@ -19,7 +19,7 @@ mlxpop.kable(
 
 \item{caption}{Caption of the table.}
 
-\item{greek}{Convert to greek letters, default to FALSE.}
+\item{greek}{Convert to greek letters, "latex_engine: xelatex" is needed. default to FALSE.}
 
 \item{mlxfolder}{Optional. Folder of the *mlxproj*. default to "../monolix/".}
 }

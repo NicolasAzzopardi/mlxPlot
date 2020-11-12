@@ -1,10 +1,10 @@
 Package: mlxPlot
 Title: Nicolas Azzopardi's personal functions
-Version: 0.0.13
+Version: 0.0.14
 Authors@R: c(person("Nicolas", "Azzopardi", email="nicolas.azzopardi@cnrs.fr", role = c("aut", "cre")))
 Author: Nicolas Azzopardi [aut,cre]
 Description: This package amalgamates all my personal functions. Mainly around plots of monolix ChartData. The use is very personalized and requires a specific folder tree structure.
-Depends: R (>= 3.6)
+Depends: R (>= 4.0)
 License: GPL-2
 LazyData: true
 Encoding: UTF-8
@@ -23,6 +23,7 @@ Imports:
   survival,
   survivalAnalysis,
   tidyr,
+  tidyselect,
   utils,
   writexl,
   na.tools,
@@ -42,6 +43,7 @@ Collate:
     'impute_funs.R'
     'ior.R'
     'mlx.OvsP.R'
+    'mlx.OvsP2.R'
     'mlxpop.kable.R'
     'mlxpop.xlsx.R'
     'na_predict.R'
