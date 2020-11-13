@@ -9,7 +9,7 @@ addCENS.LLOQ(.data, LLOQ = 0.1, rm = TRUE)
 \arguments{
 \item{.data}{Data table formatted for Monolix WITHOUT CENS column.}
 
-\item{LLOQ}{Lower Limit Of Quantification.}
+\item{LLOQ}{Value of the lower limit of quantification.}
 
 \item{rm}{Remove previous CENS column. Default to TRUE.}
 }
@@ -17,6 +17,6 @@ addCENS.LLOQ(.data, LLOQ = 0.1, rm = TRUE)
 Add a CENS column according to LLOQ.
 }
 \examples{
-# addCENS.LLOQ(TAB, LLOQ=.01)
+# addCENS.LLOQ(TAB, LLOQ = 0.01)
 }
 \keyword{censoring}

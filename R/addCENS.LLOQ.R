@@ -1,25 +1,29 @@
 #' Add a CENS column according to LLOQ.
 #' @param .data Data table formatted for Monolix WITHOUT CENS column.
-#' @param LLOQ Lower Limit Of Quantification.
+#' @param LLOQ Value of the lower limit of quantification.
 #' @param rm Remove previous CENS column. Default to TRUE.
 #' @export addCENS.LLOQ
 #' @keywords censoring
-#' @examples # addCENS.LLOQ(TAB, LLOQ=.01)
+#' @examples
+#' # addCENS.LLOQ(TAB, LLOQ = 0.01)
 #' @import dplyr
 
-addCENS.LLOQ <- function(.data, LLOQ = .1, rm = TRUE){
-  TAB = .data
+addCENS.LLOQ <- function(.data, LLOQ = .1, rm = TRUE) {
+  TAB <- .data
   Y <- CENS <- NULL
-  if(rm==TRUE){
+  if (rm == TRUE) {
     TAB %>%
-    mutate(Y = ifelse(is.na(Y),NA,ifelse(Y <=LLOQ,LLOQ,Y)),
-           CENS = ifelse(is.na(Y),NA,ifelse(Y==LLOQ, 1, 0)),
-           LIMIT = ifelse(CENS==1, 0, NA))
-  }else{
+      mutate(
+        Y = ifelse(is.na(Y), NA, ifelse(Y <= LLOQ, LLOQ, Y)),
+        CENS = ifelse(is.na(Y), NA, ifelse(Y == LLOQ, 1, 0)),
+        LIMIT = ifelse(CENS == 1, 0, NA)
+      )
+  } else {
     TAB %>%
-      mutate(Y = ifelse(is.na(Y),NA,ifelse(Y <=LLOQ,LLOQ,Y)),
-             CENS = ifelse(is.na(Y),NA,ifelse(Y==LLOQ, 1, CENS)),
-             LIMIT = ifelse(CENS==1, 0, NA))
+      mutate(
+        Y = ifelse(is.na(Y), NA, ifelse(Y <= LLOQ, LLOQ, Y)),
+        CENS = ifelse(is.na(Y), NA, ifelse(Y == LLOQ, 1, CENS)),
+        LIMIT = ifelse(CENS == 1, 0, NA)
+      )
   }
 }
-

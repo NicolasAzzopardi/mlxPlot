@@ -4,16 +4,33 @@
 \alias{mlx.OvsP}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-mlx.OvsP(mlxproj, drug = NULL, y = NULL, pop = FALSE)
+mlx.OvsP(
+  project.dir = "/home/nicolas/Documents/Etudes/Thymo/monolix/",
+  project.name = "190722_THYMO",
+  drug = NULL,
+  y = NULL,
+  type = "ind",
+  disp = "lin",
+  Color = "black",
+  size = 0.3
+)
 }
 \arguments{
-\item{mlxproj}{Name of the monolix project. The project must be in ./monolix/}
+\item{project.dir}{Absolute name of the folder of the monolix project.}
 
-\item{drug}{Text for the legend. Typicaly name of the drug.}
+\item{project.name}{Name of the monolix project. The project must be in *project.dir*}
 
-\item{y}{First letters of the file.}
+\item{drug}{Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**}
 
-\item{pop}{Logical. does the Obs vs Pop have to be plotted.}
+\item{y}{Name of the Obs values.}
+
+\item{type}{Does the Obs vs Pop plot is *pop* or *ind*.}
+
+\item{disp}{Display in *lin* or *log*. Default to *lin*.}
+
+\item{Color}{Color of the dots. Default to *black*.}
+
+\item{size}{Size of the dots. Default to *0.3*.}
 }
 \description{
 This function allows you to have almost a publication ready table of the population parameter of a model project.
