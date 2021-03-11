@@ -65,7 +65,7 @@ mlx.VPC <- function(project.dir = "/home/nicolas/Documents/Etudes/Thymo/monolix/
 
   if (disp == "log") {
 #    VPCplot + scale_y_log10(expand = c(0, 0), oob = oob_squish())
-    VPCplot + scale_y_log10(expand = c(0, 0), oob = scales::squish)
+    VPCplot + scale_y_log10(expand = c(0, 0), oob = scales::squish())
   } else {
     VPCplot
   }
