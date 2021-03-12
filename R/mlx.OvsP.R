@@ -1,8 +1,8 @@
 #' A function to export Populationparameters.txt file of a Monolix project to xlsx file.
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
-#' @param project.dir Absolute name of the folder of the monolix project.
-#' @param project.name Name of the monolix project. The project must be in *project.dir*
+#' @param project.dir Absolute or relative name of the folder of the monolix project.
+#' @param project.name Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*
 #' @param drug Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**
 #' @param y Name of the Obs values.
 #' @param type Does the Obs vs Pop plot is *pop* or *ind*.
@@ -20,8 +20,8 @@
 #' @importFrom gridExtra grid.arrange
 #' @importFrom rlang .data
 #'
-mlx.OvsP <- function(project.dir = "/home/nicolas/Documents/Etudes/Thymo/monolix/",
-                     project.name = "190722_THYMO",
+mlx.OvsP <- function(project.dir = "../monolix/",
+                     project.name = "",
                      drug = NULL, y = NULL, type = "ind", disp = "lin",
                      Color = "black", size = .3) {
 

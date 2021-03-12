@@ -5,8 +5,8 @@
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
 mlx.NPDE(
-  project.dir = "/home/nicolas/Documents/Etudes/Thymo/monolix/",
-  project.name = "190722_THYMO",
+  project.dir = "../monolix/",
+  project.name = "",
   drug = NULL,
   y = NULL,
   type = "pdf",
@@ -15,9 +15,9 @@ mlx.NPDE(
 )
 }
 \arguments{
-\item{project.dir}{Absolute name of the folder of the monolix project.}
+\item{project.dir}{Absolute or relative name of the folder of the monolix project.}
 
-\item{project.name}{Name of the monolix project. The project must be in *project.dir*}
+\item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*}
 
 \item{drug}{Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**}
 

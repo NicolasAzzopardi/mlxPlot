@@ -4,10 +4,18 @@
 \alias{mlxpop.xlsx}
 \title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
 \usage{
-mlxpop.xlsx(mlxproj, estim = "sa", caption = "Pop params", greek = FALSE)
+mlxpop.xlsx(
+  project.dir = "../monolix/",
+  project.name = "",
+  estim = "sa",
+  caption = "Pop params",
+  greek = FALSE
+)
 }
 \arguments{
-\item{mlxproj}{Name of the monolix project. The project must be in ./monolix/}
+\item{project.dir}{Absolute or relative name of the folder of the monolix project.}
+
+\item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*}
 
 \item{estim}{"sa" or "lin". default to "sa".}
 

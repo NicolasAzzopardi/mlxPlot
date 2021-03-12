@@ -1,8 +1,8 @@
 #' A function to export Populationparameters.txt file of a Monolix project to xlsx file.
 #'
 #' This function plots a publication-ready NPDE of a model project.
-#' @param project.dir Absolute name of the folder of the monolix project.
-#' @param project.name Name of the monolix project. The project must be in *project.dir*
+#' @param project.dir Absolute or relative name of the folder of the monolix project.
+#' @param project.name Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*
 #' @param drug Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**
 #' @param y Name of the Obs values.
 #' @param type Does the NPDE plot is *"pdf"* or *"cdf"*.
@@ -20,8 +20,8 @@
 #' @importFrom rlang .data
 #'
 
-mlx.NPDE <- function(project.dir = "/home/nicolas/Documents/Etudes/Thymo/monolix/",
-                     project.name = "190722_THYMO",
+mlx.NPDE <- function(project.dir = "../monolix/",
+                     project.name = "",
                      drug = NULL, y = NULL, type = "pdf",
                      Color = "black", size = .3) {
 

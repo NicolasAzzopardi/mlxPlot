@@ -5,23 +5,23 @@
 \title{A function to to print Populationparameters.txt file of a Monolix project to Rmarksdown.}
 \usage{
 mlxpop.kable(
-  mlxproj,
+  project.dir = "../monolix/",
+  project.name = "",
   estim = "sa",
   caption = "Pop params",
-  greek = FALSE,
-  mlxfolder = "../monolix/"
+  greek = FALSE
 )
 }
 \arguments{
-\item{mlxproj}{Name of the monolix project. The project must be in *mlxfolder*.}
+\item{project.dir}{Absolute or relative name of the folder of the monolix project.}
+
+\item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*}
 
 \item{estim}{"sa" or "lin". default to "sa".}
 
 \item{caption}{Caption of the table.}
 
 \item{greek}{Convert to greek letters, "latex_engine: xelatex" is needed. default to FALSE.}
-
-\item{mlxfolder}{Optional. Folder of the *mlxproj*. default to "../monolix/".}
 }
 \description{
 This function allows you to have almost a publication ready table of the population parameter of a model project.

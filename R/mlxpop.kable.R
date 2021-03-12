@@ -1,8 +1,8 @@
 #' A function to to print Populationparameters.txt file of a Monolix project to Rmarksdown.
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
-#' @param mlxproj Name of the monolix project. The project must be in *mlxfolder*.
-#' @param mlxfolder Optional. Folder of the *mlxproj*. default to "../monolix/".
+#' @param project.dir Absolute or relative name of the folder of the monolix project.
+#' @param project.name Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*
 #' @param estim "sa" or "lin". default to "sa".
 #' @param caption Caption of the table.
 #' @param greek Convert to greek letters, "latex_engine: xelatex" is needed. default to FALSE.
@@ -16,16 +16,14 @@
 #' @import latex2exp
 #' @importFrom rlang .data
 
-mlxpop.kable <- function(mlxproj,estim = "sa",caption="Pop params",greek=FALSE, mlxfolder ="../monolix/" ){
+mlxpop.kable <- function(project.dir = "../monolix/", project.name = "", estim = "sa", caption="Pop params", greek=FALSE){
 
   scale0 <- function(x, na.rm = FALSE) round(x, 0)
   scale4 <- function(x, na.rm = FALSE) round(x, 4)
 
-  mlxproj = gsub(".mlxtran","",mlxproj)
+  project.name = gsub(".mlxtran","",project.name)
 
-  POP <- read_delim(
-    paste0(mlxfolder,mlxproj,"/populationParameters.txt"),
-    delim = ",") %>%
+  POP <- read_delim(paste0(project.dir,project.name,"/populationParameters.txt"), delim = ",") %>%
     mutate_at(vars(starts_with("value")),  scale4) %>%
     mutate_at(vars(starts_with("se")),     scale4) %>%
     mutate_at(vars(starts_with("rse")),    scale0) %>%

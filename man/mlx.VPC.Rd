@@ -5,8 +5,8 @@
 \title{A function to plot VPCs from a Monolix project.}
 \usage{
 mlx.VPC(
-  project.dir = "/home/nicolas/Documents/Etudes/Thymo/monolix/",
-  project.name = "190916_190722_THYMO_VALID_retro",
+  project.dir = "../monolix/",
+  project.name = "",
   drug = NULL,
   y = NULL,
   disp = "lin",
@@ -16,9 +16,9 @@ mlx.VPC(
 )
 }
 \arguments{
-\item{project.dir}{Absolute name of the folder of the monolix project.}
+\item{project.dir}{Absolute or relative name of the folder of the monolix project.}
 
-\item{project.name}{Name of the monolix project. The project must be in *project.dir*}
+\item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*}
 
 \item{drug}{Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**}
 
