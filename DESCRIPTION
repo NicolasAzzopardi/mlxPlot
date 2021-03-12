@@ -29,8 +29,8 @@ Imports:
   writexl,
   na.tools,
   methods
-URL: https://github.com/NicolasAzzopardi/mlxPlot
-BugReports: https://github.com/NicolasAzzopardi/mlxPlot/issues
+URL: https://www.github.com/NicolasAzzopardi/mlxPlot
+BugReports: https://www.github.com/NicolasAzzopardi/mlxPlot/issues
 RoxygenNote: 7.1.1
 Collate: 
     'addCENS.LLOQ.R'
