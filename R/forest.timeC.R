@@ -13,7 +13,7 @@
 #' @examples # getwd()
 #' @import ggplot2
 #' @import purrr
-#' @import mlxR
+#' @import RsSimulx
 #' @import survival
 #' @import survivalAnalysis
 #' @importFrom rlang .data
