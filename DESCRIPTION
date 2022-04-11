@@ -31,7 +31,7 @@ Imports:
   methods
 URL: https://www.github.com/NicolasAzzopardi/mlxPlot
 BugReports: https://www.github.com/NicolasAzzopardi/mlxPlot/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Collate: 
     'addCENS.LLOQ.R'
     'data.R'
