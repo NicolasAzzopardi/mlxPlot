@@ -28,18 +28,7 @@ forest.timeC <- function(project.file=NULL
 ){
 
   newId <- oriId <- ID <- TIME <- PROG <- NULL
-  sim.param <- list("mode")
-
-  if(prop.name=="b"){
-    sim.param <- list("mode",c(b=0))
-  }
-  if(prop.name=="b1"){
-    sim.param <- list("mode",c(b1=0))
-  }
-  if(prop.name=="b2"){
-    sim.param <- list("mode",c(b2=0))
-  }
-
+  sim.param <- "mlx_EBEs"
 
   add.timec <- list(
     section = "[LONGITUDINAL]", block = "EQUATION:",
