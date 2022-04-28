@@ -6,10 +6,10 @@
 #' @examples # ior("ggplot2")
 #' @import utils
 
-ior <- function(pack){
+ior <- function(pack, mirror = "https://cloud.r-project.org/"){
   create.pkg <- pack[!(pack %in% installed.packages()[, "Package"])]
   if (length(create.pkg))
-    install.packages(create.pkg, dependencies = TRUE)
+    install.packages(create.pkg, dependencies = TRUE, repos=mirror)
   sapply(pack, require, character.only = TRUE)
 }
 
