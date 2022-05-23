@@ -30,7 +30,7 @@ mlx.OvsP <- function(project.dir = "../monolix/",
 
   ## DATA
 
-  OBSvsPRED <- read_delim(paste0(project.dir, project.name, "/ChartsData/ObservationsVsPredictions/", y, "_obsVsPred.txt"), delim = ",")
+  OBSvsPRED <- read_delim(paste0(project.dir, project.name, "/ChartsData/ObservationsVsPredictions/", y, "_obsVsPred.txt"), delim = ",",show_col_types = FALSE)
 
   ## LIMITS
 
@@ -100,19 +100,32 @@ mlx.OvsP <- function(project.dir = "../monolix/",
     OvspP <- OvspP + scale_x_continuous(TeX(paste("Pop. pred.", drug)), limits = c(0, max.Y), expand = c(0, 0)) +
       scale_y_continuous(TeX(paste("Obs.", drug)), limits = c(0, max.Y), expand = c(0, 0))
   } else {
-    OvsiP <- OvsiP + scale_x_log10(TeX(paste("Ind. pred.", drug)), limits = c(minY, max.Y), expand = c(0, 0),
-                                   breaks = scales::trans_breaks("log10", function(x) 10^x),
-                                   labels = scales::trans_format("log10", math_format(10^.x))) +
-      scale_y_log10(TeX(paste("Obs.", drug)), limits = c(minY, max.Y), expand = c(0, 0),
-                    breaks = scales::trans_breaks("log10", function(x) 10^x),
-                    labels = scales::trans_format("log10", math_format(10^.x)))
+    if (minY>1000) {
+      OvsiP <- OvsiP + scale_x_log10(TeX(paste("Ind. pred.", drug)), #limits = c(minY, max.Y),
+                                     expand = c(0, 0),
+                                     breaks = scales::trans_breaks("log10", function(x) 10^x),
+                                     labels = scales::trans_format("log10", math_format(10^.x))) +
+        scale_y_log10(TeX(paste("Obs.", drug)),# limits = c(minY, max.Y),
+                      expand = c(0, 0),
+                      breaks = scales::trans_breaks("log10", function(x) 10^x),
+                      labels = scales::trans_format("log10", math_format(10^.x)))
 
-    OvspP <- OvspP + scale_x_log10(TeX(paste("Pop. pred.", drug)), limits = c(minY, max.Y), expand = c(0, 0),
-                                   breaks = scales::trans_breaks("log10", function(x) 10^x),
-                                   labels = scales::trans_format("log10", math_format(10^.x))) +
-      scale_y_log10(TeX(paste("Obs.", drug)), limits = c(minY, max.Y), expand = c(0, 0),
-                    breaks = scales::trans_breaks("log10", function(x) 10^x),
-                    labels = scales::trans_format("log10", math_format(10^.x)))
+      OvspP <- OvspP + scale_x_log10(TeX(paste("Pop. pred.", drug)), #limits = c(minY, max.Y),
+                                     expand = c(0, 0),
+                                     breaks = scales::trans_breaks("log10", function(x) 10^x),
+                                     labels = scales::trans_format("log10", math_format(10^.x))) +
+        scale_y_log10(TeX(paste("Obs.", drug)), #limits = c(minY, max.Y),
+                      expand = c(0, 0),
+                      breaks = scales::trans_breaks("log10", function(x) 10^x),
+                      labels = scales::trans_format("log10", math_format(10^.x)))
+    } else{
+      OvsiP <- OvsiP + scale_x_log10(TeX(paste("Ind. pred.", drug)), limits = c(minY, max.Y), expand = c(0, 0)) +
+        scale_y_log10(TeX(paste("Obs.", drug)), limits = c(minY, max.Y), expand = c(0, 0))
+
+      OvspP <- OvspP + scale_x_log10(TeX(paste("Pop. pred.", drug)), limits = c(minY, max.Y), expand = c(0, 0)) +
+        scale_y_log10(TeX(paste("Obs.", drug)), limits = c(minY, max.Y), expand = c(0, 0))
+    }
+
   }
 
   ## Conditionals OUTPUT

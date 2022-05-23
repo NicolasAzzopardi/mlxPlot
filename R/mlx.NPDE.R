@@ -27,9 +27,9 @@ mlx.NPDE <- function(project.dir = "../monolix/",
 
   ## DATA
 
-  Res_theo <- read_delim(paste0(project.dir, project.name, "/ChartsData/DistributionOfTheResiduals/theoreticalGuides.txt"), delim = ",")
-  NPDE_pdf <- read_delim(paste0(project.dir, project.name, "/ChartsData/DistributionOfTheResiduals/", y, "_pdf.txt"), delim = ",")
-  NPDE_cdf <- read_delim(paste0(project.dir, project.name, "/ChartsData/DistributionOfTheResiduals/", y, "_cdf.txt"), delim = ",")
+  Res_theo <- read_delim(paste0(project.dir, project.name, "/ChartsData/DistributionOfTheResiduals/theoreticalGuides.txt"), delim = ",",show_col_types = FALSE)
+  NPDE_pdf <- read_delim(paste0(project.dir, project.name, "/ChartsData/DistributionOfTheResiduals/", y, "_pdf.txt"), delim = ",",show_col_types = FALSE)
+  NPDE_cdf <- read_delim(paste0(project.dir, project.name, "/ChartsData/DistributionOfTheResiduals/", y, "_cdf.txt"), delim = ",",show_col_types = FALSE)
 
   ## PLOT
 
