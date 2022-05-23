@@ -19,7 +19,7 @@
 #' @import latex2exp
 #' @import scales
 #' @importFrom gridExtra grid.arrange
-#'
+#' @importFrom rlang .data
 
 utils::globalVariables(c(".x"))
 
