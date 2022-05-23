@@ -1,8 +1,8 @@
 #' Install or require a list of packages.
 #' @param pack List of packages names to require or if not installed, to install and require.
+#' @param mirror Mirror to use. Default to *https://cloud.r-project.org/*.
 #' @keywords package install
 #' @export ior
-#' @keywords package
 #' @examples # ior("ggplot2")
 #' @import utils
 
@@ -13,15 +13,12 @@ ior <- function(pack, mirror = "https://cloud.r-project.org/"){
   sapply(pack, require, character.only = TRUE)
 }
 
-
-
 impute_all <- function(.tbl, .na, ...) {
   for (i in 1:length(.tbl)) {
     .tbl[[i]] <- na.tools::na.replace(.tbl[[i]], .na, ...)
   }
   .tbl
 }
-
 
 impute_at <- function(.tbl, .na, .vars, ...) {
   #.vars <- dplyr::select_vars(names(.tbl), .vars)
