@@ -4,10 +4,12 @@
 \alias{ior}
 \title{Install or require a list of packages.}
 \usage{
-ior(pack)
+ior(pack, mirror = "https://cloud.r-project.org/")
 }
 \arguments{
 \item{pack}{List of packages names to require or if not installed, to install and require.}
+
+\item{mirror}{Mirror to use. Default to *https://cloud.r-project.org/*.}
 }
 \description{
 Install or require a list of packages.
