@@ -4,18 +4,14 @@
 \alias{mlxind.params}
 \title{Get individual params (EBEs) from a Monolix run.}
 \usage{
-mlxind.params(
-  project.dir = "../monolix/",
-  project.name = "",
-  covariate.names = NA
-)
+mlxind.params(project.dir = "../monolix/", project.name = "", covs = NA)
 }
 \arguments{
 \item{project.dir}{Absolute or relative name of the folder of the monolix project.}
 
 \item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*.}
 
-\item{covariate.names}{Optional covariates to include in the extraxtion (vector of strings).}
+\item{covs}{Optional covariates to include in the extraxtion (vector of strings).}
 }
 \description{
 Get individual params (EBEs) from a Monolix run.
