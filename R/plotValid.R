@@ -9,7 +9,7 @@
 #' @examples # PlotValid(id="1001",data=PK)
 #' @import dplyr
 #' @importFrom tidyr fill
-#' @import readr
+#' @importFrom readr read_delim
 #' @import writexl
 #' @import knitr
 #' @import latex2exp

@@ -13,7 +13,7 @@
 #' @export
 #' @examples # getwd()
 #' @import dplyr
-#' @import readr
+#' @importFrom readr read_delim
 #' @import knitr
 #' @import ggplot2
 #' @importFrom scales squish

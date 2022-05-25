@@ -10,7 +10,7 @@
 #' @export
 #' @examples # getwd()
 #' @import dplyr
-#' @import readr
+#' @importFrom readr read_delim
 #' @import writexl
 #' @import knitr
 #' @import latex2exp
