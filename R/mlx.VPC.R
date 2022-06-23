@@ -8,8 +8,10 @@
 #' @param disp Display in *lin* or *log*. Default to *lin*.
 #' @param obs Plot observed data?. Default to *TRUE*.
 #' @param size Size of the observed data dots. Default to *0.5*. Useless if *obs = FALSE*.
+#' @param time.unit Time unit for the x legend. Default to *"day"*.
 #' @param simulated Use simulated Blq data? Default to *FALSE*.
 #' @param corrected Dose the predictions are corrected? Default to *FALSE*.
+#' @param colors Color palette : order: c(lines and dots, central ribbon, lower and uper ribbon). Default to *c("#4682B4", "#FF0000", "#0080FF")*.
 #' @keywords monolix
 #' @export
 #' @examples # getwd()
@@ -24,7 +26,8 @@
 #'
 mlx.VPC <- function(project.dir = "../monolix/",
                     project.name = "",
-                    drug = NULL, y = NULL, disp = "lin", obs=TRUE, size=.5, simulated=FALSE, corrected = FALSE) {
+                    drug = NULL, y = NULL, disp = "lin", obs=TRUE, size=.5, time.unit="day", simulated=FALSE, corrected = FALSE,
+                    colors = c("#4682B4", "#FF0000", "#0080FF")) {
 
   ## DATA
 
@@ -43,28 +46,28 @@ mlx.VPC <- function(project.dir = "../monolix/",
                 aes_string(x = "bins_middles",
                            ymin = paste0("theoretical_upper_piLower", PC),
                            ymax = paste0("theoretical_upper_piUpper", PC)
-                ), fill = "#0080ff", alpha = 0.3) +
+                ), fill = colors[3], alpha = 0.3) +
     geom_ribbon(data = vpcpercdata,
                 aes_string(x = "bins_middles",
                            ymin = paste0("theoretical_median_piLower", PC),
                            ymax = paste0("theoretical_median_piUpper", PC)
-                ), fill = "red", alpha = 0.2) +
+                ), fill = colors[2], alpha = 0.2) +
     geom_ribbon(data = vpcpercdata,
                 aes_string(x = "bins_middles",
                            ymin = paste0("theoretical_lower_piLower", PC),
                            ymax = paste0("theoretical_lower_piUpper", PC)
-                ), fill = "#0080ff", alpha = 0.3) +
-    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_upper"), color = "#4682b4") +
-    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_median"), color = "#4682b4") +
-    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_lower"), color = "#4682b4") +
-    xlab("Time (day)") +
+                ), fill = colors[3], alpha = 0.3) +
+    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_upper"), color = colors[1]) +
+    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_median"), color = colors[1]) +
+    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_lower"), color = colors[1]) +
+    xlab(paste0("Time (", time.unit, ")")) +
     ylab(TeX(drug)) +
     scale_x_continuous(expand = c(0, 0))
 
   ## Conditionals OUTPUT
 
   if (obs == TRUE) {
-    VPCplot + geom_point(data = vpcobsdata, aes_string(x = "time", paste0(y, SIM, PC)), size=size, color="#4682b4", alpha = .5)
+    VPCplot + geom_point(data = vpcobsdata, aes_string(x = "time", paste0(y, SIM, PC)), size=size, color=colors[1], alpha = .5)
   } else {
     VPCplot
   }
