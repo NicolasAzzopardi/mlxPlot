@@ -6,7 +6,8 @@
 #' @param drug Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**
 #' @param y Name of the Obs values.
 #' @param disp Display in *lin* or *log*. Default to *lin*.
-#' @param size Size of the dots. Default to *0.5*.
+#' @param obs Plot observed data?. Default to *TRUE*.
+#' @param size Size of the observed data dots. Default to *0.5*. Useless if *obs = FALSE*.
 #' @param simulated Use simulated Blq data? Default to *FALSE*.
 #' @param corrected Dose the predictions are corrected? Default to *FALSE*.
 #' @keywords monolix
@@ -23,13 +24,13 @@
 #'
 mlx.VPC <- function(project.dir = "../monolix/",
                     project.name = "",
-                    drug = NULL, y = NULL, disp = "lin", size=.5, simulated=FALSE, corrected = FALSE) {
+                    drug = NULL, y = NULL, disp = "lin", obs=TRUE, size=.5, simulated=FALSE, corrected = FALSE) {
 
   ## DATA
 
-  vpcobsdata <- read_delim(paste0(project.dir, project.name, "/ChartsData/VisualPredictiveCheck/", y, "_observations.txt"), delim = ",")
-  vpcpercdata <- read_delim(paste0(project.dir, project.name, "/ChartsData/VisualPredictiveCheck/", y, "_percentiles.txt"), delim = ",")
-  vpcbindata <- read_delim(paste0(project.dir, project.name, "/ChartsData/VisualPredictiveCheck/", y, "_bins.txt"), delim = ",")
+  vpcobsdata <- read_delim(paste0(project.dir, project.name, "/ChartsData/VisualPredictiveCheck/", y, "_observations.txt"), delim = ",", show_col_types = FALSE)
+  vpcpercdata <- read_delim(paste0(project.dir, project.name, "/ChartsData/VisualPredictiveCheck/", y, "_percentiles.txt"), delim = ",", show_col_types = FALSE)
+  vpcbindata <- read_delim(paste0(project.dir, project.name, "/ChartsData/VisualPredictiveCheck/", y, "_bins.txt"), delim = ",", show_col_types = FALSE)
 
   if (corrected == TRUE) {    PC <- "_pc"  } else {    PC <- ""  }
   if (simulated == TRUE) {    SIM <- "_simBlq"  } else {    SIM <- ""  }
@@ -53,7 +54,6 @@ mlx.VPC <- function(project.dir = "../monolix/",
                            ymin = paste0("theoretical_lower_piLower", PC),
                            ymax = paste0("theoretical_lower_piUpper", PC)
                 ), fill = "#0080ff", alpha = 0.3) +
-    geom_point(data = vpcobsdata, aes_string(x = "time", paste0(y, SIM, PC)), size=size, color="#4682b4", alpha = .5) +
     geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_upper"), color = "#4682b4") +
     geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_median"), color = "#4682b4") +
     geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_lower"), color = "#4682b4") +
@@ -62,6 +62,12 @@ mlx.VPC <- function(project.dir = "../monolix/",
     scale_x_continuous(expand = c(0, 0))
 
   ## Conditionals OUTPUT
+
+  if (obs == TRUE) {
+    VPCplot + geom_point(data = vpcobsdata, aes_string(x = "time", paste0(y, SIM, PC)), size=size, color="#4682b4", alpha = .5)
+  } else {
+    VPCplot
+  }
 
   if (disp == "log") {
 #    VPCplot + scale_y_log10(expand = c(0, 0), oob = oob_squish())
