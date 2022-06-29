@@ -1,6 +1,6 @@
 #' A function to plot VPCs from a Monolix project.
 #'
-#' This function allows you to have almost a publication ready VPC plot of a monolix project.
+#' This function allows you to have almost a publication ready VPC plot of a monolix run.
 #' @param project.dir Absolute or relative name of the folder of the monolix project.
 #' @param project.name Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*
 #' @param drug Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**
