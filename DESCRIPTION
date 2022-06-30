@@ -52,5 +52,5 @@ Collate:
     'mlxpop.xlsx.R'
     'na_predict.R'
     'plotValid.R'
-    'sumdata.R'
+    'sumData.R'
     'zzz.R'

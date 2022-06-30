@@ -3,7 +3,7 @@
 #' @param dt a data.table with at least one numeric column
 #' @return A data.table with summary stats: n, min, max, mean, sd
 #' @import data.table
-#' @name sumdata
+#' @name sumData
 #' @export
 #'
 
