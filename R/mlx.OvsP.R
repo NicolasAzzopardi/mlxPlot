@@ -1,6 +1,7 @@
 #' A function to export Populationparameters.txt file of a Monolix project to xlsx file.
 #'
 #' This function allows you to have almost a publication ready table of the population parameter of a model project.
+#' @name mlx.OvsP
 #' @param project.dir Absolute or relative name of the folder of the monolix project.
 #' @param project.name Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*
 #' @param drug Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**

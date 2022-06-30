@@ -10,9 +10,12 @@ mlx.VPC(
   drug = NULL,
   y = NULL,
   disp = "lin",
+  obs = TRUE,
   size = 0.5,
+  time.unit = "day",
   simulated = FALSE,
-  corrected = FALSE
+  corrected = FALSE,
+  colors = c("#4682B4", "#FF0000", "#0080FF")
 )
 }
 \arguments{
@@ -26,14 +29,20 @@ mlx.VPC(
 
 \item{disp}{Display in *lin* or *log*. Default to *lin*.}
 
-\item{size}{Size of the dots. Default to *0.5*.}
+\item{obs}{Plot observed data?. Default to *TRUE*.}
+
+\item{size}{Size of the observed data dots. Default to *0.5*. Useless if *obs = FALSE*.}
+
+\item{time.unit}{Time unit for the x legend. Default to *"day"*.}
 
 \item{simulated}{Use simulated Blq data? Default to *FALSE*.}
 
 \item{corrected}{Dose the predictions are corrected? Default to *FALSE*.}
+
+\item{colors}{Color palette : order: c(lines and dots, central ribbon, lower and uper ribbon). Default to *c("#4682B4", "#FF0000", "#0080FF")*.}
 }
 \description{
-This function allows you to have almost a publication ready VPC plot of a monolix project.
+This function allows you to have almost a publication ready VPC plot of a monolix run.
 }
 \examples{
 # getwd()

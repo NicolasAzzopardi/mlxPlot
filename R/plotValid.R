@@ -16,7 +16,7 @@
 #' @importFrom rlang .data
 
 PlotValid <- function(data=NULL,id=NULL,x.name="Time (day)",y.name=NULL){
-  if(is.null(id)){data = data |> filter(ID==id)}
+  if(is.null(id)){data = data |> filter(id==id)}
   data = data |> mutate(CENS=as.factor(.data$CENS)) |> group_by(.data$ID) |>
     mutate(sample="other",
            Tlast = ifelse(is.na(.data$AMT),NA,.data$TIME+.data$AMT/.data$RATE),
