@@ -43,23 +43,23 @@ mlx.VPC <- function(project.dir = "../monolix/",
   VPCplot <- ggplot() +
     theme_classic() +
     geom_ribbon(data = vpcpercdata,
-                aes_string(x = "bins_middles",
-                           ymin = paste0("theoretical_upper_piLower", PC),
-                           ymax = paste0("theoretical_upper_piUpper", PC)
+                aes(x = .data[["bins_middles"]],
+                           ymin = .data[[paste0("theoretical_upper_piLower", PC)]],
+                           ymax = .data[[paste0("theoretical_upper_piUpper", PC)]]
                 ), fill = colors[3], alpha = 0.3) +
     geom_ribbon(data = vpcpercdata,
-                aes_string(x = "bins_middles",
-                           ymin = paste0("theoretical_median_piLower", PC),
-                           ymax = paste0("theoretical_median_piUpper", PC)
+                aes(x = .data[["bins_middles"]],
+                           ymin = .data[[paste0("theoretical_median_piLower", PC)]],
+                           ymax = .data[[paste0("theoretical_median_piUpper", PC)]]
                 ), fill = colors[2], alpha = 0.2) +
     geom_ribbon(data = vpcpercdata,
-                aes_string(x = "bins_middles",
-                           ymin = paste0("theoretical_lower_piLower", PC),
-                           ymax = paste0("theoretical_lower_piUpper", PC)
+                aes(x = .data[["bins_middles"]],
+                           ymin = .data[[paste0("theoretical_lower_piLower", PC)]],
+                           ymax = .data[[paste0("theoretical_lower_piUpper", PC)]]
                 ), fill = colors[3], alpha = 0.3) +
-    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_upper"), color = colors[1]) +
-    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_median"), color = colors[1]) +
-    geom_line(data = vpcpercdata, aes_string(x = "bins_middles", y = "empirical_lower"), color = colors[1]) +
+    geom_line(data = vpcpercdata, aes(x = .data[["bins_middles"]], y = .data[["empirical_upper"]]), color = colors[1]) +
+    geom_line(data = vpcpercdata, aes(x = .data[["bins_middles"]], y = .data[["empirical_median"]]), color = colors[1]) +
+    geom_line(data = vpcpercdata, aes(x = .data[["bins_middles"]], y = .data[["empirical_lower"]]), color = colors[1]) +
     xlab(paste0("Time (", time.unit, ")")) +
     ylab(TeX(drug)) +
     scale_x_continuous(expand = c(0, 0))
@@ -67,7 +67,7 @@ mlx.VPC <- function(project.dir = "../monolix/",
   ## Conditionals OUTPUT
 
   if (obs == TRUE) {
-    VPCplot + geom_point(data = vpcobsdata, aes_string(x = "time", paste0(y, SIM, PC)), size=size, color=colors[1], alpha = .5)
+    VPCplot + geom_point(data = vpcobsdata, aes(x = .data[["time"]], .data[[paste0(y, SIM, PC)]]), size=size, color=colors[1], alpha = .5)
   } else {
     VPCplot
   }

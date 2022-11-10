@@ -47,9 +47,9 @@ mlx.OvsP <- function(project.dir = "../monolix/",
   if(sum(OBSvsPRED %>% select(censored))==0){
 
     OvsiP <- ggplot(OBSvsPRED) +
-      geom_point(aes_string(
-        x = "indivPredMode",
-        y = y
+      geom_point(aes(
+        x = .data[["indivPredMode"]],
+        y = .data[[y]]
       ),
       color = Color, size = size, alpha = .8
       ) +
@@ -59,9 +59,9 @@ mlx.OvsP <- function(project.dir = "../monolix/",
 
 
     OvspP <- ggplot(OBSvsPRED) +
-      geom_point(aes_string(
-        x = "popPred",
-        y = y
+      geom_point(aes(
+        x = .data[["popPred"]],
+        y = .data[[y]]
       ),
       color = Color, size = size, alpha = .8
       ) +
@@ -71,9 +71,9 @@ mlx.OvsP <- function(project.dir = "../monolix/",
 
   }else{
     OvsiP <- ggplot(OBSvsPRED) +
-      geom_point(aes_string(
-        x = "indivPredMode",
-        y = paste0(y, "_simBlq_mode")
+      geom_point(aes(
+        x = .data[["indivPredMode"]],
+        y = .data[[paste0(y, "_simBlq_mode")]]
       ),
       color = Color, size = size, alpha = .8
       ) +
@@ -83,9 +83,9 @@ mlx.OvsP <- function(project.dir = "../monolix/",
 
 
     OvspP <- ggplot(OBSvsPRED) +
-      geom_point(aes_string(
-        x = "popPred",
-        y = paste0(y, "_simBlq_mode")
+      geom_point(aes(
+        x = .data[["popPred"]],
+        y = .data[[paste0(y, "_simBlq_mode")]]
       ),
       color = Color, size = size, alpha = .8
       ) +
