@@ -1,6 +1,6 @@
 Package: mlxPlot
 Title: Nicolas Azzopardi's personal functions
-Version: 0.0.18
+Version: 0.0.19
 Authors@R: c(person("Nicolas", "Azzopardi", email="nicolas.azzopardi@cnrs.fr", role = c("aut", "cre")))
 Author: Nicolas Azzopardi [aut,cre]
 Description: This package amalgamates all my personal functions. Mainly around plots of monolix ChartData. The use is very personalized and requires a specific folder tree structure.
@@ -31,9 +31,10 @@ Imports:
   methods
 URL: https://github.com/NicolasAzzopardi/mlxPlot
 BugReports: https://github.com/NicolasAzzopardi/mlxPlot/issues
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Collate: 
     'addCENS.LLOQ.R'
+    'addCENS.ULOQ.R'
     'data.R'
     'drop_cols.R'
     'drop_rows.R'
