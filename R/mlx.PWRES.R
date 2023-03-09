@@ -1,10 +1,10 @@
-#' This function plots a publication-ready NPDE distribution of a monolix project run.
+#' This function plots a publication-ready PWRES distribution of a monolix project run.
 #'
 #' @param project.dir Absolute or relative name of the folder of the monolix project.
 #' @param project.name Name of the monolix project file without *.mlxtran* extension. The project must be in *project.dir*
 #' @param drug Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**
 #' @param y Name of the Obs values.
-#' @param type Does the NPDE plot is *"pdf"* or *"cdf"*.
+#' @param type Does the IWRES plot is *"pdf"* or *"cdf"*.
 #' @param Color Color of the bars or dots. Default to *black*.
 #' @param size Size of the dots (for type = "cdf"). Default to *0.3*.
 #' @keywords monolix
@@ -19,7 +19,7 @@
 #' @importFrom rlang .data
 #'
 
-mlx.NPDE <- function(project.dir = "../monolix/",
+mlx.IWRES <- function(project.dir = "../monolix/",
                      project.name = "",
                      drug = NULL, y = NULL, type = "pdf",
                      Color = "black", size = .3) {
@@ -32,31 +32,31 @@ mlx.NPDE <- function(project.dir = "../monolix/",
 
   ## PLOT
 
-  NPDEpdf <- ggplot() +
+  PWRESpdf <- ggplot() +
     theme_classic() +
-    geom_col(data = PDF, aes(x = npde_abscissa, y = npde_pdf), fill = Color, alpha = .7) +
+    geom_col(data = PDF, aes(x = pwRes_abscissa, y = pwRes_pdf), fill = Color, alpha = .7) +
     geom_line(data = THEO, aes(x = abscissa, y = pdf)) +
-    scale_y_continuous(TeX(paste("NPDE", drug)), expand = c(0, 0)) +
+    scale_y_continuous(TeX(paste("Population weigthed residus", drug)), expand = c(0, 0)) +
     coord_cartesian(xlim = c(-4, 4)) +
     scale_x_continuous("", expand = c(0, 0))
 
-  NPDEcdf <- ggplot() +
+  PWREScdf <- ggplot() +
     theme_classic() +
     geom_line(data = THEO, aes(x = abscissa, y = cdf)) +
-    geom_line(data = CDF, aes(x = npde_abscissa, y = npde_cdf), size = 2, color = Color, alpha = .7) +
-    scale_y_continuous(TeX(paste("NPDE (cdf)", drug)), expand = c(0, 0)) +
+    geom_line(data = CDF, aes(x = pwRes_abscissa, y = pwRes_cdf), size = 2, color = Color, alpha = .7) +
+    scale_y_continuous(TeX(paste("Population weigthed residus (cdf)", drug)), expand = c(0, 0)) +
     coord_cartesian(xlim = c(-4, 4), ylim = c(0, 1)) +
     scale_x_continuous("", expand = c(0, 0))
 
   ## Conditionals OUTPUT
 
   if (type == "pdf") {
-    NPDEpdf
+    PWRESpdf
   } else {
     if (type == "cdf") {
-      NPDEcdf
+      PWREScdf
     } else {
-      grid.arrange(NPDEpdf, NPDEcdf, nrow = 1)
+      grid.arrange(PWRESpdf, PWREScdf, nrow = 1)
     }
   }
 }

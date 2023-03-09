@@ -1,10 +1,10 @@
 Package: mlxPlot
 Title: Nicolas Azzopardi's personal functions
-Version: 0.0.19
+Version: 0.0.20
 Authors@R: c(person("Nicolas", "Azzopardi", email="nicolas.azzopardi@cnrs.fr", role = c("aut", "cre")))
 Author: Nicolas Azzopardi [aut,cre]
 Description: This package amalgamates all my personal functions. Mainly around plots of monolix ChartData. The use is very personalized and requires a specific folder tree structure.
-Depends: R (>= 4.0)
+Depends: R (>= 4.2)
 License: GPL-2
 LazyData: true
 Encoding: UTF-8
@@ -46,8 +46,10 @@ Collate:
     'utils.R'
     'impute_funs.R'
     'ior.R'
+    'mlx.IWRES.R'
     'mlx.NPDE.R'
     'mlx.OvsP.R'
+    'mlx.PWRES.R'
     'mlx.VPC.R'
     'mlxind.params.R'
     'mlxpop.kable.R'
