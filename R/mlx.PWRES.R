@@ -19,7 +19,7 @@
 #' @importFrom rlang .data
 #'
 
-mlx.IWRES <- function(project.dir = "../monolix/",
+mlx.PWRES <- function(project.dir = "../monolix/",
                      project.name = "",
                      drug = NULL, y = NULL, type = "pdf",
                      Color = "black", size = .3) {

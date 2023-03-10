@@ -2,11 +2,11 @@
 % Please edit documentation in R/mlx.OvsP.R
 \name{mlx.OvsP}
 \alias{mlx.OvsP}
-\title{A function to export Populationparameters.txt file of a Monolix project to xlsx file.}
+\title{This function plots a publication-ready OBS vs. PRED of a monolix project run.}
 \arguments{
 \item{project.dir}{Absolute or relative name of the folder of the monolix project.}
 
-\item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*}
+\item{project.name}{Name of the monolix project file without *.mlxtran* extension. The project must be in *project.dir*}
 
 \item{drug}{Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**}
 
@@ -21,7 +21,7 @@
 \item{size}{Size of the dots. Default to *0.3*.}
 }
 \description{
-This function allows you to have almost a publication ready table of the population parameter of a model project.
+This function plots a publication-ready OBS vs. PRED of a monolix project run.
 }
 \examples{
 # getwd()

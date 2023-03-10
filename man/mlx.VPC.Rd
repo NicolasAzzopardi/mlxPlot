@@ -2,7 +2,7 @@
 % Please edit documentation in R/mlx.VPC.R
 \name{mlx.VPC}
 \alias{mlx.VPC}
-\title{A function to plot VPCs from a Monolix project.}
+\title{A function to plot VPCs from a Monolix project run.}
 \usage{
 mlx.VPC(
   project.dir = "../monolix/",
@@ -21,7 +21,7 @@ mlx.VPC(
 \arguments{
 \item{project.dir}{Absolute or relative name of the folder of the monolix project.}
 
-\item{project.name}{Name of the monolix project file without *.mlxtran* extension.. The project must be in *project.dir*}
+\item{project.name}{Name of the monolix project file without *.mlxtran* extension. The project must be in *project.dir*}
 
 \item{drug}{Text for the legend. Typicaly name of the drug. Can be a **TeX** object from package **latex2exp**}
 
